@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task1</title>
+	<style type="text/css">
+		.container{
+			width: 100px;
+			margin: auto;
+		}
+		.line{
+			height: 2px;
+			width: 70px;
+			margin-bottom: 20px;
+			background-color: #203DEF;
+			transform: scale(0,0);
+			transition: all .3s ease;
+		}
+		.active{
+			transform: scale(1,1);
+		}
+	</style>
+	<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script type="text/javascript">
+		function onActive(){
+			var $line = $(".line");
+			console.log($line);
+			$line.toggleClass("active");
+		}
+	</script>
+</head>
+<body>
+	<div class="container">
+		<p>前端学院</p>
+		<div class="line"></div>
+		<button id="btn" onclick="onActive()">切换样式</button>
+	</div>
+</body>
+</html>
