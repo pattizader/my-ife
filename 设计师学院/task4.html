@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Task4</title>
+    <style>
+        .card-wrap{
+            position: relative;
+            top: 50%;
+            left: 50%;
+            width: 250px;
+            height: 350px;
+            margin-left: -175px;
+            overflow: hidden;
+        }
+        .card-wrap:after{
+            content: '';
+            display: table;
+            clear: both;
+        }
+        .card{
+            width: 250px;
+            height: 350px;
+            -webkit-transition: all 1.2s ease;
+            transition: all 1.2s ease;
+        }
+        .card.front{
+            float: left;
+            background-image: url('front.jpg');
+            -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+        }
+        .card.reverse{
+            opacity: 0;
+            -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+            background-image: url('reverse.jpg');
+        }
+        .card-wrap:hover .card.front{
+            -webkit-transform: rotateY(-180deg);
+            transform: rotateY(-180deg);
+            /*opacity: 0;*/
+            -webkit-animation: front-reverse 1.1 ease;
+            animation: front-reverse 1.1s ease;
+            animation-fill-mode: forwards;
+        }
+        .card-wrap:hover .card.reverse{
+            -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+            /*opacity: 1;*/
+            -webkit-animation: back-reverse 1.1s ease;
+            animation: back-reverse 1.1s ease;
+            animation-fill-mode: forwards;
+        }
+        @keyframes front-reverse {
+            0%{
+                opacity: 1;
+            }
+            100%{
+                opacity: 0;
+            }
+        }
+        @keyframes back-reverse {
+            0%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card-wrap">
+        <div class="card front"></div>
+        <div class="card reverse"></div>
+    </div>
+</body>
+</html>
