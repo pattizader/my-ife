@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>IFE ECMAScript</title>
+</head>
+<style type="text/css">
+	table{
+		margin: auto;
+		transform: translateY(50%);
+		width: 50%;
+		text-align: center;
+		border: 1px solid #000;
+	}
+	tr{
+		height: 20px;
+		border: 1px solid #000;
+	}
+	td{
+		border: 1px solid #000;
+	}
+</style>
+<body>
+	<table id="multiply-table"></table>
+	<script>
+		var mutiTable = document.getElementById("multiply-table")
+		for (var i=0; i < 10; i++) {
+			var tr = document.createElement("tr")
+			mutiTable.appendChild(tr)
+			for (var j = 0; j < 10; j++) {
+				var td = document.createElement("td")
+				mutiTable.childNodes[i].appendChild(td)
+				if (i == 0) {
+					mutiTable.childNodes[i].childNodes[j].innerHTML = j
+				} else if (j == 0){
+					mutiTable.childNodes[i].childNodes[j].innerHTML = i
+				} 
+			}
+		}
+		for (var k = 1; k < 10; k++){
+			for (var n = k; n < 10; n++) {
+				mutiTable.childNodes[n].childNodes[k].innerHTML = k + "*" + n + "=" + n*k
+			}
+		}
+	</script>
+</body>
+</html>
